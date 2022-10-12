@@ -1,7 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  connect() {
-    this.element.textContent = "Hello World!"
+  remove() {
+    this.element.remove()
+  }
+  reset() {
+    this.element.reset()
   }
 }
