@@ -1,0 +1,26 @@
+
+<div class="flex flex-col items-center w-4/5 md:w-1/2 transition-all ease-in"> 
+  <div class="flex flex-row mt-10 mb-4 w-full justify-center items-end">
+    <h2 class="font-bold text-white sm:text-5xl text-6xl font-righteous">Change Password</h2>
+  </div>
+ 
+    <%= form_with model: Current.user, url: password_path, class:"form" do |f| %>
+      <% if f.object.errors.any? %>
+        <div class="rounded-border justify-center w-full p-2 px-10 flex" role="alert" id="error_explanation">
+          <% f.object.errors.each do |error| %>
+            <div><%= error.full_message %></div>
+          <% end %>
+        </div>
+      <% end %>
+     
+      <div class="mt-2">
+        <%= f.password_field :password, placeholder: "new-password", class:"rounded-lg font-righteous text-lg" %>
+      </div>
+      <div class="mt-2">
+        <%= f.password_field :password_confirmation, placeholder: "repeat-password", class:"rounded-lg font-righteous text-lg" %><br />
+      </div>
+      <div class="actions btn-green mt-4 w-auto px-6">
+        <%= f.submit "Update Password" %>
+      </div>
+    <% end %>
+</div>

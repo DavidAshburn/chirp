@@ -11,6 +11,7 @@ class RegistrationsController < ApplicationController
 
 		respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to root_path, notice: "User was registered." }
       else
         format.html { render :new, status: :unprocessable_entity }

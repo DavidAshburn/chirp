@@ -1,0 +1,10 @@
+<h1>forgot password</h1>
+
+<%= form_with url:password_reset_path, class:"form" do |f| %>
+	<div class="mt-2">
+    <%= f.email_field :email, autofocus: true, placeholder: "e-mail", class:"rounded-lg font-righteous text-lg mt-10" %>
+  </div>
+  <div class="actions btn-green mt-4">
+    <%= f.submit "Send reset email" %>
+  </div>
+<% end %>

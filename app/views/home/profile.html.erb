@@ -1,0 +1,11 @@
+<div class="w-full text-right font-righteous text-8xl md:text-[10rem] leading-[4.6rem] text-zinc-100 tracking-tight leading-[8rem] pt-10 pr-[10%]"><%= Current.user.username %></div>
+<div class="flex w-full justify-end">
+  <div class="w-2/3 text-right font-righteous text-2xl md:mt-4 text-zinc-200 pr-[10%]"><%= Current.user.email %></div>
+</div>
+
+<div class="flex justify-start w-[full] absolute left-10 bottom-10">
+  <div class="flex flex-col">
+    <%= link_to "Change Password", password_path, class:"btn-blue w-auto px-6 mt-10 w-32" %>
+    <%= button_to "Sign Out", sign_out_path, method: :delete, class:"btn-yellow w-auto px-6 mt-10 w-32" %>
+  </div>
+</div>
