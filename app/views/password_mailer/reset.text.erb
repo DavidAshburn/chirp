@@ -1,0 +1,7 @@
+<h1>Hi <%= params[:user].username %> </h1><br/>
+
+Someone requested a reset of your password on Cardinal>
+
+If this was you, click the link below. It will expire in 15 minutes.
+
+<%= password_reset_edit_url(token: @token) %>

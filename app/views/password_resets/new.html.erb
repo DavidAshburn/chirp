@@ -1,10 +1,14 @@
-<h1>forgot password</h1>
+<div class="flex flex-col items-center w-4/5 md:w-1/2 transition-all ease-in"> 
+  <div class="flex flex-row mt-10 w-full justify-center items-end">
+    <h2 class="text-white font-bold sm:text-6xl text-5xl font-righteous">Password Reset</h2>
+  </div>
 
-<%= form_with url:password_reset_path, class:"form" do |f| %>
-	<div class="mt-2">
-    <%= f.email_field :email, autofocus: true, placeholder: "e-mail", class:"rounded-lg font-righteous text-lg mt-10" %>
-  </div>
-  <div class="actions btn-green mt-4">
-    <%= f.submit "Send reset email" %>
-  </div>
-<% end %>
+  <%= form_with url:password_reset_path, class:"form" do |f| %>
+  	<div class="mt-2">
+      <%= f.email_field :email, autofocus: true, placeholder: "e-mail", class:"rounded-lg font-righteous text-lg mt-10" %>
+    </div>
+    <div class="actions btn-green mt-4">
+      <%= f.submit "Send reset email" %>
+    </div>
+  <% end %>
+</div>
