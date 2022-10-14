@@ -2,7 +2,7 @@ class OmniauthCallbacksController < ApplicationController
 	def twitter
 		Rails.logger.info auth
 
-		twitter_account = Current.user.twitter_accounts.where(username: auth.info.niclname).first_or_initialize
+		twitter_account = Current.user.twitter_accounts.where(username: auth.info.nickname).first_or_initialize
 		twitter_account.update(
 			name: auth.info.name,
 			image: auth.info.image,
@@ -10,7 +10,7 @@ class OmniauthCallbacksController < ApplicationController
 			secret: auth.credentials.secret,
 		)
 
-		redirect_to home_profile_path, notice: "Connected your Account"
+		redirect_to twitter_accounts_path, notice: "Connected your Account"
 	end
 
 	def auth

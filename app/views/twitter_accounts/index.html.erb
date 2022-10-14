@@ -1,0 +1,21 @@
+<div class="flex flex-col w-full items-center md:w-2/3"> 
+  <div class="flex flex-row w-full justify-center">
+    <h2 class="font-bold text-6xl font-righteous text-white mt-6">Twitter Accounts</h2>
+  </div>
+
+  <div class="flex flex-col w-full gap-4 mt-10 items-center">
+    <% @twitter_accounts.each do |element| %>
+    	<div class="flex gap-10 items-center">
+	      <%= link_to "https://twitter.com/#{element.username}", target: :_blank do %>
+	        <div class="flex justify-between items-center pl-6 pr-2 py-2 glass-box gap-10">
+	          <div class="font-bold font-righteous text-2xl max-w-[50%]"><%= element.username %></div>
+	          <div><%= image_tag element.image, class:"rounded-full min-h-[5rem]" %></div>
+	        </div>
+	      <% end %>
+	      <%= button_to "Disconnect", element, method: :delete, form: { data: {turbo_confirm: "Are you sure?" }}, class:"btn-yellow" %>
+	    </div>
+    <% end %>
+  </div>
+   
+  <%= link_to "Connect a Twitter Account", "/auth/twitter",method: :post, class:"btn-green mt-10" %>
+</div>
