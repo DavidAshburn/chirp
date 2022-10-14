@@ -10,9 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_11_230415) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_14_051931) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "twitter_accounts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.string "username"
+    t.string "image"
+    t.string "token"
+    t.string "secret"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_twitter_accounts_on_user_id"
+  end
+
+  create_table "twitter_acounts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.string "username"
+    t.string "image"
+    t.string "token"
+    t.string "secret"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_twitter_acounts_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,4 +47,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_11_230415) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "twitter_accounts", "users"
+  add_foreign_key "twitter_acounts", "users"
 end
