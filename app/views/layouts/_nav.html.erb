@@ -5,7 +5,6 @@
       <button class="flex font-righteous text-bold text-xl no-underline text-zinc-700 hover:text-zinc-500 my-2 ml-2" data-action="navbar#showDrop navbar#hideDropAlt">Go Out</button>
       <div class="bg-sky-200 z-20 shadow-small min-w-[180px] hidden absolute rounded-b-xl" data-navbar-target="maindrop">
         <%= link_to "About Us", home_about_path, class:"flex font-righteous text-bold text-lg no-underline text-sky-700 hover:text-sky-600 ml-2 my-2" %>
-        
         <button class="flex font-monoton text-4xl no-underline text-zinc-700 hover:text-zinc-500 absolute right-3 bottom-2" data-action="navbar#hideDrop">x</button>
       </div>
     </div>
@@ -17,6 +16,7 @@
           <% if Current.user %>
             <%= link_to "My Profile", home_profile_path, class:"flex font-righteous text-bold text-lg no-underline text-sky-700 hover:text-cyan-600 ml-2 my-2" %>
             <%= link_to "Twitter Accounts", twitter_accounts_path, class:"flex font-righteous text-bold text-lg no-underline text-sky-700 hover:text-cyan-600 ml-2 my-2" %>
+            <%= link_to "Tweets", tweets_path, class:"flex font-righteous text-bold text-lg no-underline text-sky-700 hover:text-cyan-600 ml-2 my-2" %>
           <% end %>
           <button class="flex font-monoton text-4xl no-underline text-zinc-700 hover:text-zinc-500 absolute right-3 bottom-2" data-action="navbar#hideDropAlt">x</button>
         </div>
@@ -25,6 +25,7 @@
       <% if Current.user %>
         <%= link_to "Profile", home_profile_path, class:"font-righteous text-bold text-lg no-underline text-sky-700 hover:text-cyan-600 px-2.5 py-2 hover:text-cyan-600 hidden sm:flex"%>
         <%= link_to "Twitter Accounts", twitter_accounts_path, class:"font-righteous text-bold text-lg no-underline text-sky-700 hover:text-cyan-600 px-2.5 py-2 hover:text-cyan-600 hidden sm:flex"%>
+        <%= link_to "Tweets", tweets_path, class:"font-righteous text-bold text-lg no-underline text-sky-700 hover:text-cyan-600 px-2.5 py-2 hover:text-cyan-600 hidden sm:flex"%>
       <% end %>
     </div>
 </nav>

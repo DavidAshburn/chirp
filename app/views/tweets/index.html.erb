@@ -1,0 +1,15 @@
+<div class="flex flex-col w-full items-center md:w-2/3"> 
+  <div class="flex flex-row w-full justify-center">
+    <h2 class="font-bold text-6xl font-righteous text-white mt-6">Tweets</h2>
+  </div>
+
+  <div class="flex flex-col position-center w-full h-12 my-6">
+	  <% if Current.user.twitter_accounts.any? %>
+	  	<%= link_to "Schedule a Tweet", new_tweet_path, class: "btn-green" %>
+	  <% else %>
+	  	<%= button_to "Connect Twitter", "/auth/twitter", method: :post, data: {turbo: false}, class: "btn-green w-auto px-6 mt-10" %>
+	  <% end %>
+	</div>
+
+
+</div>

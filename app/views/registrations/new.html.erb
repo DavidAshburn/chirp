@@ -5,16 +5,7 @@
   </div>
  
     <%= form_with model: @user, url: sign_up_path, class:"form" do |f| %>
-      <% if f.object.errors.any? %>
-        <div id="error_explanation" class="alert rounded-border">
-          <h2><%= pluralize(f.object.errors.count, "error") %>:</h2>
-          <ul>
-            <% f.object.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+      <% render "shared/form_errors", f: f %>
       <div class="mt-2">
         <%= f.email_field :email, autofocus: true, placeholder: "e-mail", class:"rounded-lg font-righteous text-lg mt-10" %>
       </div>

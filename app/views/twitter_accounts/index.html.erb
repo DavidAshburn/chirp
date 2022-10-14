@@ -4,7 +4,7 @@
   </div>
 
   <div class="flex flex-col w-full gap-4 mt-10 items-center">
-    <% @twitter_accounts.each do |element| %>
+    <% @twitter_list.each do |element| %>
     	<div class="flex gap-10 items-center">
 	      <%= link_to "https://twitter.com/#{element.username}", target: :_blank do %>
 	        <div class="flex justify-between items-center pl-6 pr-2 py-2 glass-box gap-10">
@@ -17,5 +17,5 @@
     <% end %>
   </div>
    
-  <%= link_to "Connect a Twitter Account", "/auth/twitter",method: :post, class:"btn-green mt-10" %>
+  <%= button_to "Connect Twitter", "/auth/twitter", method: :post, data: {turbo: false}, class: "btn-green w-auto px-6 mt-10" %>
 </div>

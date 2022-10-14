@@ -67,3 +67,8 @@
 body {
   animation: bg-animate 120s infinite;
 }
+
+#datetimeselect select {
+  border-radius: 3rem;
+  text-align:  center;
+}

@@ -5,14 +5,7 @@
   </div>
  
     <%= form_with model: @user, url: password_reset_edit_path(token: params[:token]), class:"form" do |f| %>
-      <% if f.object.errors.any? %>
-        <div class="rounded-border justify-center w-full p-2 px-10 flex" role="alert" id="error_explanation">
-          <% f.object.errors.each do |error| %>
-            <div><%= error.full_message %></div>
-          <% end %>
-        </div>
-      <% end %>
-     
+      <% render "shared/form_errors", f: f %>
       <div class="mt-2">
         <%= f.password_field :password, placeholder: "new-password", class:"rounded-lg font-righteous text-lg" %>
       </div>
