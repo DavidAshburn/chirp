@@ -5,7 +5,8 @@
 
 <div class="flex justify-start w-[full] absolute left-10 bottom-10">
   <div class="flex flex-col">
-    <%= link_to "Change Password", password_path, class:"btn-blue w-auto px-6 mt-10 w-32" %>
-    <%= button_to "Sign Out", sign_out_path, method: :delete, class:"btn-yellow w-auto px-6 mt-10 w-32" %>
+    <%= button_to "Connect Twitter", "/auth/twitter", method: :post, data: {turbo: false}, class: "btn-green w-auto px-6 mt-10" %>
+    <%= link_to "Change Password", password_path, class:"btn-blue w-auto px-6 mt-10" %>
+    <%= button_to "Sign Out", sign_out_path, method: :delete, class:"btn-yellow w-auto px-6 mt-10" %>
   </div>
-</div>
+</div> 
