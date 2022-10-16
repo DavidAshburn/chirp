@@ -1,19 +1,18 @@
-<%= form_with model: tweet, class:"form" do |f| %>
-  <%= render "shared/form_errors", form: f %>
+<%= form_with model: tweet, class:"form" do |form| %>
+  <%= render "shared/form_errors", form: form %>
   <div class="mt-2">
-  	<%= f.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class:"rounded-lg font-righteous text-lg mb-4"} %>
+  	<%= form.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class:"rounded-lg font-righteous text-lg mb-4"} %>
   </div>
   <div class="mt-2">
-    <%= f.text_area :body, autofocus: true, placeholder: "Body", class:"rounded-lg font-righteous text-lg mb-4" %>
+    <%= form.text_area :body, autofocus: true, placeholder: "Body", class:"rounded-lg font-righteous text-lg mb-4" %>
   </div>
   <div class="mt-2">
-  	<%= f.label "Publish At" %>
+  	<%= form.label "Publish At" %>
   </div>
   <div class="mt-1" id="datetimeselect">
-  	<%= f.datetime_select :publish_at %>
+  	<%= form.datetime_select :publish_at %>
   </div>
-      
   <div class="actions btn-green mt-4">
-    <%= f.submit "Schedule Tweet" %>
+    <%= form.submit "Schedule" %>
   </div>
 <% end %>

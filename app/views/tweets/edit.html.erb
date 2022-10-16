@@ -4,4 +4,5 @@
   </div>
 
   <%= render "form", tweet: @tweet %>
+  <%= button_to "Delete", @tweet, method: :delete, data: {turbo_confirm: "Are you sure?"}, class:"btn-grey mt-4" %>
 </div>

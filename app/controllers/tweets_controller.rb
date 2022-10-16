@@ -1,8 +1,9 @@
 class TweetsController < ApplicationController
 	before_action :require_user_logged_in!
-	before_action :set_tweets, only: [:index]
+	before_action :set_tweet, only: [:show, :edit, :update, :destroy]
 
 	def index
+		@tweets = Current.user.tweets
 	end
 	
 	def new
@@ -21,9 +22,22 @@ class TweetsController < ApplicationController
 	def edit
 	end
 
+	def update
+		if @tweet.update(tweet_params)
+			redirect_to tweets_path, notice: "Updated"
+		else
+			render :edit
+		end
+	end
+
+	def destroy
+		@tweet.destroy
+		redirect_to tweets_path, notice: "Tweet was unscheduled"
+	end
+
 	private
-	def set_tweets
-		@tweets = Current.user.tweets
+	def set_tweet
+		@tweet = Current.user.tweets.find(params[:id])
 	end
 
 	def tweet_params
