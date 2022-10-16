@@ -4,7 +4,7 @@
   </div>
 
   <%= form_with url:password_reset_path, class:"form" do |f| %>
-    <% render "shared/form_errors", f: f %>
+    <%= render "shared/form_errors", form: f %>
   	<div class="mt-2">
       <%= f.email_field :email, autofocus: true, placeholder: "e-mail", class:"rounded-lg font-righteous text-lg mt-10" %>
     </div>

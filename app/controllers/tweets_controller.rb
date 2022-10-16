@@ -12,19 +12,13 @@ class TweetsController < ApplicationController
 	def create
 		@tweet = Current.user.tweets.create(tweet_params)
 		if @tweet.save
-			redirect_to @tweet, notice: "Scheduled"
+			redirect_to tweets_path, notice: "Scheduled"
 		else
 			render :new, status: :unprocessable_entity
 		end
 	end
 
 	def edit
-	end
-
-	def update
-	end
-
-	def destroy
 	end
 
 	private

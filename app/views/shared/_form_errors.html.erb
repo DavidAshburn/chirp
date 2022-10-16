@@ -1,10 +1,7 @@
-<% if f.object.errors.any? %>
+<% if form.object.errors.any? %>
   <div id="error_explanation" class="alert rounded-border">
-    <h2><%= pluralize(f.object.errors.count, "error") %>:</h2>
-    <ul>
-      <% f.object.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
+    <% form.object.errors.full_messages.each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
 <% end %>

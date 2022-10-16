@@ -5,7 +5,7 @@
   </div>
  
     <%= form_with model: Current.user, url: password_path, class:"form" do |f| %>
-      <% render "shared/form_errors", f: f %>
+      <% render "shared/form_errors", form: f %>
       <div class="mt-2">
         <%= f.password_field :password, placeholder: "new-password", class:"rounded-lg font-righteous text-lg" %>
       </div>

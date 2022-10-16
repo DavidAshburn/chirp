@@ -1,0 +1,21 @@
+<div id="<%= dom_id tweet %>" class="flex flex-col glass-box rounded-xl items-center gap-4 px-6 py-2 pb-4 m-2 w-3/4">
+    <div class="flex items-center text-2xl gap-2 w-auto glass-box rounded-full mb-2 p-2 pr-4">
+      <%= image_tag tweet.twitter_account.image, class: "rounded-full" %>
+      <%= link_to "@#{tweet.twitter_account.username}", "https://twitter.com/#{tweet.twitter_account.username}", target: :_blank %>
+    </div>
+    <div class="flex justify-center">  
+      <p class="w-full px-10">
+        <%= tweet.body %>
+      </p>
+    </div>
+    <% if tweet.published? %>
+      <div class="flex justify-center">
+        <%= link_to "View Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank %>
+      </div>
+    <% else %>
+      <div class="flex justify-center items-center gap-4">
+        <%= l tweet.publish_at, format: :short %>
+        <%= link_to "Edit Tweet", edit_tweet_path(tweet), class:"btn-yellow" %>
+      </div>
+    <% end %>
+</div>
