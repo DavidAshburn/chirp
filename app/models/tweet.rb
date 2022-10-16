@@ -6,12 +6,12 @@ class Tweet < ApplicationRecord
   validates :publish_at, presence: true
 
   after_initialize do
-    self.publish_at ||= 24.hours.from_now
+    self.publish_at ||= Time.zone.now
   end
 
   after_save_commit do
     if publish_at_previously_changed?
-      TweetJob.set(wait_until: self.publish_at).perform_later(self)
+      TweetJob.set(wait_until: publish_at).perform_later(self)
     end
   end
 
@@ -24,3 +24,4 @@ class Tweet < ApplicationRecord
     update(tweet_id: tweet.id)
   end
 end
+ 
